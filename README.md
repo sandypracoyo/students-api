@@ -1,1 +1,301 @@
-# students-api
+FORMAT: 1A
+HOST: https://private-59669a-sandy9.apiary-mock.com/
+
+# Simple API Colleges
+Simple API allowing client to view or manipulating data
+
+## Students Collection [/students]
+
+### View All Students [GET]
+View All students list
+
++ Response 200 (application/json)
+
+        {
+            "status" : "OK",
+            "message" : "Successful",
+            "data" : [
+                {
+                    "id" : 1,
+                    "nama" : "Andre Hidayat",
+                    "nim" : "110101",
+                    "email" : "andrehidayat@gmail.com",
+                    "jurusan" : "Teknik Informatika"
+                },
+                {
+                    "id" : 2,
+                    "nama" : "Jane Doe",
+                    "nim" : "130218",
+                    "email" : "janedoe@gmail.com",
+                    "jurusan" : "Sistem Informasi"
+                },
+                {
+                    "id" : 3,
+                    "nama" : "Dedi Suprayitno",
+                    "nim" : "140319",
+                    "email" : "dedisuprayitno@gmail.com",
+                    "jurusan" : "Psikologi"
+                },
+                {
+                    "id" : 4,
+                    "nama" : "Andre Putradewa",
+                    "nim" : "150189",
+                    "email" : "andreputradewa@gmail.com",
+                    "jurusan" : "Teknik Informatika"
+                },
+                {
+                    "id" : 5,
+                    "nama" : "Hendi",
+                    "nim" : "140278",
+                    "email" : "hendi@gmail.com",
+                    "jurusan" : "Sistem Informasi"
+                },
+                {
+                    "id" : 6,
+                    "nama" : "Agung Gumilar",
+                    "nim" : "160302",
+                    "email" : "agunggumilar@gmail.com",
+                    "jurusan" : "Psikologi"
+                },
+                {
+                    "id" : 7,
+                    "nama" : "Dini Apriningsih",
+                    "nim" : "170429",
+                    "email" : "dini@gmail.com",
+                    "jurusan" : "Geologi"
+                },
+                {
+                    "id" : 8,
+                    "nama" : "Endri Putri",
+                    "nim" : "150298",
+                    "email" : "endri@gmail.com",
+                    "jurusan" : "Sistem Informasi"
+                },
+                {
+                    "id" : 9,
+                    "nama" : "Dody agus",
+                    "nim" : "140311",
+                    "email" : "dodi@gmail.com",
+                    "jurusan" : "Psikologi"
+                },
+                {
+                    "id" : 10,
+                    "nama" : "Tegar Dwisaputra",
+                    "nim" : "160197",
+                    "email" : "tegar@gmail.com",
+                    "jurusan" : "Teknik Informatika"
+                }
+            ]
+        }
+
+### Create new student [POST]
+You can create new student.
++ Request
+
+        {
+            "id" : 10,
+            "nama" : "Tegar Dwisaputra",
+            "nim" : "160197",
+            "email" : "tegar@gmail.com",
+            "jurusan" : "Teknik Informatika"
+        }
+
++ Response 201 (application/json)
+
+
+## Students Collection with path [/students/{id}]
+
+### View spesific student [GET]
+
+You can view spesific student with id
+
++ Parameters
+    + id : 1 (number,required)
+
++ Response 200 (application/json)
+
+           {
+                "status" : "OK",
+                "message" : "Successful",
+                "data" : [
+                     {
+                        "id" : 1,
+                        "nama" : "Andre Hidayat",
+                        "nim" : "110101",
+                        "email" : "andrehidayat@gmail.com",
+                        "jurusan" : "Teknik Informatika"
+                    }
+                ]
+           
+           }
+
+### Update a student (by replacing it with a new version) [PUT]
+
+You can update/replacing spesific student by using id with a new version
+
++ Parameters
+    + id : 1 (number,required)
+    
++ Request
+
+        {
+            "id" : 1,
+            "nama" : "Andre Hidayat",
+            "nim" : "110103",
+            "email" : "andre_hidayat@gmail.com",
+            "jurusan" : "Teknik Informatika"
+        }
+        
++ Response 204 
+
+
+### Update part of student (if available and appropriate) [PATCH]
+
+You can update/replacing part of spesific student by using id
+
++ Parameters
+    + id : 1 (number,required)
++ Request
+
+        {
+            "nim" : "110103",
+            "email" : "andre_hidayat@gmail.com"
+        }
+        
++ Response 204 
+
+### Delete a student [DELETE]
+
+You can delete student
+
++ Parameters
+    + id : 1 (number,required)
++ Response 204 (application/json)
+
+## Major Collection [/major]
+
+### View All Major [GET]
+
+View all major list
+
++ Response 200 (application/json)
+
+        {
+            "status" : "OK",
+            "message" : "Successful",
+            "data" : [
+                {
+                    "id" : 1,
+                    "nama_jurusan" : "Teknik Informatika",
+                    "strata" : "S1",
+                    "akreditasi" : "A"
+                },
+                {
+                    "id" : 2,
+                    "nama_jurusan" : "Sistem Informasi",
+                    "strata" : "S1",
+                    "akreditasi" : "B"
+                },
+                {
+                    "id" : 3,
+                    "nama_jurusan" : "Manajemen Informatika",
+                    "strata" : "D3",
+                    "akreditasi" : "B"
+                },
+                {
+                    "id" : 4,
+                    "nama_jurusan" : "Psikologi",
+                    "strata" : "S1",
+                    "akreditasi" : "B"
+                },
+                {
+                    "id" : 5,
+                    "nama_jurusan" : "Geologi",
+                    "strata" : "S1",
+                    "akreditasi" : "A"
+                },
+            ]
+        }
+    
+### Add New Major [POST]
+
+You can create new major
+
++ Request
+
+        {
+            "id" : 6,
+            "nama_jurusan" : "Akuntansi",
+            "strata" : "S1",
+            "Akreditasi" : "A"
+        }
+
++ Response 201 (application/json)
+
+
+## Major collection with path [/major/{id}] 
+
+### View Spesific Major [GET]
+
+You can view spesific major with id
+
++ Parameters
+    + id : 1 (number,required)
+
++ Response 200 (application/json)
+
+           {
+                "status" : "OK",
+                "message" : "Successful",
+                "data" : [
+                     {
+                        "id" : 1,
+                        "nama_jurusan" : "Teknik Informatika",
+                        "strata" : "S1",
+                        "akreditasi" : "A"
+                    }
+                ]
+           
+           }
+
+### Update a major (by replacing it with a new version) [PUT]
+
+You can update/replacing spesific major by using id with a new version
+
++ Parameters
+    + id : 1 (number,required)
+    
++ Request
+
+        {
+            "id" : 1,
+            "nama_jurusan" : "Teknik Informatika",
+            "strata" : "S1",
+            "akreditasi" : "A"
+        }
+        
++ Response 204 
+
+
+### Update part of major (if available and appropriate) [PATCH]
+
+You can update/replacing part of spesific major by using id
+
++ Parameters
+    + id : 1 (number,required)
++ Request
+
+        {
+            "strata" : "S1",
+            "akreditasi" : "B"
+        }
+        
++ Response 204 
+
+### Delete Major [DELETE]
+
+You can delete Major
+
++ Parameters
+    + id : 1 (number,required)
++ Response 204 (application/json)
